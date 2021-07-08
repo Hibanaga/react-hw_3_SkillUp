@@ -8,7 +8,7 @@ const ContactCard = ({ id, name, number, ondeleteContactHandler }) => {
   return (
     <div className="contactCard">
       <h2 className="titleNameCard">{name}</h2>
-      <span className="numberContactText">{number}</span>
+      <span className="numberContactText">tel: {number}</span>
 
       <button
         className="js-btn-deleteContact"

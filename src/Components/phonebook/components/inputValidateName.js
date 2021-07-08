@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-const InputValidateName = ({ name, onHandleChangeInputs }) => {
+const InputValidateName = ({
+  name,
+  onHandleChangeInputs,
+  onCheckUniqNameInput,
+}) => {
   const [isTrue, setIsTrue] = useState(true);
 
   let validateInputName = (event) => {
@@ -10,6 +14,7 @@ const InputValidateName = ({ name, onHandleChangeInputs }) => {
     } else {
       setIsTrue(Boolean(value.match(pattern)));
     }
+
     onHandleChangeInputs(event);
   };
 
@@ -22,7 +27,13 @@ const InputValidateName = ({ name, onHandleChangeInputs }) => {
           name="name"
           value={name}
           onInput={validateInputName}
-          className={!isTrue ? "inputForm inputFormBad" : "inputForm"}
+          className={
+            !isTrue
+              ? "inputForm inputFormBad"
+              : onCheckUniqNameInput()
+              ? "inputForm inputFormNotUniq"
+              : "inputForm"
+          }
           placeholder="please enter the name..."
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."

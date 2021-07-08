@@ -7,6 +7,12 @@
 .titleContactList {
   font-size: 3.5rem;
   margin-bottom: 2rem;
+  margin-left: 5%;
+}
+
+.wrapperContactsList {
+  width: 50%;
+  margin-left: 10rem;
 }
 
 .contactCard {
@@ -14,7 +20,7 @@
   padding: 1rem 0.5rem;
   border: 1px solid #000;
   position: relative;
-  width: 35rem;
+  width: 75%;
   transition: 0.3s;
 
   &:hover {
@@ -26,9 +32,11 @@
 
 .titleNameCard {
   font-size: 2.5rem;
+  padding-left: 1rem;
 }
 
 .numberContactText {
+  padding-left: 1.5rem;
   font-size: 2rem;
 }
 
@@ -61,6 +69,99 @@
 
 .titleNoContacts {
   font-size: 1.8rem;
+  line-height: 145%;
+}
+
+.subtitleFormAddContact {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.labelInputFormContact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleInputContact {
+  font-size: 2.5rem;
+}
+
+.js-btn-addContact {
+  margin-top: 2rem;
+  margin-left: 3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: cadetblue;
+
+  border-bottom: 5px solid #000;
+  border-left: 5px solid #000;
+
+  transition: 0.2s;
+  cursor: pointer;
+
+  -webkit-box-shadow: -2px 4px 48px 0px rgba(34, 60, 80, 0.33);
+  -moz-box-shadow: -2px 4px 48px 0px rgba(34, 60, 80, 0.33);
+  box-shadow: -2px 4px 48px 0px rgba(34, 60, 80, 0.33);
+
+  &:hover {
+    background-color: rgb(55, 211, 216);
+  }
+
+  &:active {
+    border-bottom: 0px solid #000;
+    border-left: 0px solid #000;
+    box-shadow: 0px;
+  }
+}
+
+.wrapperInputFilter {
+  margin-left: 4.5%;
+  width: 70%;
+
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.js-inputFilter {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #000;
+  outline: none;
+}
+
+.colorWrapper {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #000;
+}
+
+.itemValidateColor {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+
+.subtitleColorsScheme {
+  font-size: 2rem;
+}
+
+.descriptionColorInfo {
+  font-size: 1.6rem;
+  padding-left: 1.5rem;
+}
+
+.colorGood {
+  background-color: rgb(15, 223, 15);
+}
+
+.colorMedium {
+  background-color: rgb(205, 5, 255);
+}
+
+.colorBad {
+  background-color: red;
 }
 
 .inputForm {
@@ -84,24 +185,17 @@
 }
 
 .inputFormBad {
-  border-color: red;
+  // border-color: red;
 
   &:focus {
     border-color: red;
   }
 }
 
-.subtitleFormAddContact {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
+.inputFormNotUniq {
+  border-color: rgb(205, 5, 255);
 
-.labelInputFormContact {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.titleInputContact {
-  font-size: 2.5rem;
+  &:focus {
+    border-color: rgb(205, 5, 255);
+  }
 }
