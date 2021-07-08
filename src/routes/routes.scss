@@ -1,0 +1,30 @@
+.header {
+  height: 10vh;
+  background-color: #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkRoute {
+  margin: 0rem 1rem 1rem 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: rgb(182, 182, 182);
+}
+
+.activeLinkRoute {
+  color: rgb(255, 255, 255);
+}
+
+.main {
+  background-color: rgb(223, 223, 223);
+  height: 90vh;
+  width: 100%;
+}
+
+.containerMain {
+  width: 114rem;
+  margin: 0 auto;
+}
