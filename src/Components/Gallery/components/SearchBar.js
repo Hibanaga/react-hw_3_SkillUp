@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import ImageSearchOutlinedIcon from "@material-ui/icons/ImageSearchOutlined";
 
 export default function SearchBar({ onSubmitQuery }) {
-  let [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
   const handleSubmitQuery = (event) => {
     event.preventDefault();
@@ -13,13 +14,12 @@ export default function SearchBar({ onSubmitQuery }) {
   };
 
   return (
-    <label>
+    <label className="labelSearchBar">
+      <h2 className="titleFormSearch">Please enter the question:</h2>
+
       <form className="SearchForm" onSubmit={handleSubmitQuery}>
-        <button type="submit" className="SearchForm-button">
-          <span className="SearchForm-button-label">Search</span>
-        </button>
         <input
-          className="SearchForm-input"
+          className="SearchBar-input"
           type="text"
           autoComplete="off"
           value={query}
@@ -27,6 +27,10 @@ export default function SearchBar({ onSubmitQuery }) {
           autoFocus
           placeholder="Search images and photos"
         />
+
+        <button type="submit" className="SearchForm-button">
+          <ImageSearchOutlinedIcon className="imageIconSearch" />
+        </button>
       </form>
     </label>
   );

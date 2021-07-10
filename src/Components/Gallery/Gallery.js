@@ -1,13 +1,10 @@
 import React, { useState, useReducer, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import ImageGallery from "./components/ImageGallery";
-// import pixabayFetch from "./services/pixabayAPI";
+import pixabayFetch from "./services/pixabayAPI";
 import "./gallery.scss";
-
-//request to API
 import axios from "axios";
-
-const API_KEY = `22420681-313330a10c6fb67bf32b92a1a`;
+import PaginationComponent from "./components/Pagination";
 
 const imagesReducer = (state, action) => {
   switch (action.type) {
@@ -24,31 +21,92 @@ export default function Gallery() {
   const [pageNum, setPageNum] = useState(1);
   const [isLoading, setLoading] = useState(false);
   const [images, dispatch] = useReducer(imagesReducer, []);
+  const [querySearch, setQuerySearch] = useState("");
+  const [pagesCount, setPagesCount] = useState(0);
+  const [isUniqPage, setUniqPage] = useState(true);
 
-  let submitQueryHnadler = (query) => {
-    setLoading(true);
-    axios(
-      `https://pixabay.com/api/?q=${query}&page=${pageNum}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
-    )
-      .then((data) =>
-        dispatch({ type: "searchImages", payload: { images: data.data.hits } })
-      )
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+  let submitFormSearchHandler = (query) => {
+    if (query !== querySearch && query !== "") {
+      setQuerySearch(query);
+      setPageNum(1);
+      setUniqPage(true);
+    }
   };
+
+  useEffect(() => {
+    if (querySearch && isUniqPage) {
+      let CancelToken = axios.CancelToken;
+      let source = CancelToken.source();
+
+      setLoading(true);
+      pixabayFetch(querySearch, pageNum, { cancelToken: source.token })
+        .then((data) => {
+          setPagesCount(data.totalHits);
+          dispatch({ type: "searchImages", payload: { images: data.hits } });
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    }
+
+    if (pageNum > 1 && !isUniqPage) {
+      let CancelToken = axios.CancelToken;
+      let source = CancelToken.source();
+
+      setLoading(true);
+      pixabayFetch(querySearch, pageNum, { cancelToken: source.token })
+        .then((data) => {
+          dispatch({
+            type: "loadMoreImages",
+            payload: { moreImages: data.hits },
+          });
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    }
+  }, [querySearch, pageNum, isUniqPage]);
 
   const handleLoadMore = () => {
     setPageNum(pageNum + 1);
+    setUniqPage(false);
   };
+
+  const changePageHandler = (event) => {
+    setPageNum(Number(event.target.textContent));
+    setUniqPage(true);
+    // setUniqPage(checkUniqPagination(pageNum, Number(event.target.textContent)));
+  };
+
+  let timeOut1 = setTimeout(() => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  }, 150);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeOut1);
+    };
+  }, [images, timeOut1]);
 
   return (
     <div>
-      <SearchBar onSubmitQuery={submitQueryHnadler} />
-      <ImageGallery
-        images={images}
-        isLoading={isLoading}
-        onHandleLoadMore={handleLoadMore}
-      />
+      <SearchBar onSubmitQuery={submitFormSearchHandler} />
+      <ImageGallery images={images.flat()} isLoading={isLoading} />
+
+      {images.length > 0 && (
+        <>
+          <button className="js-btn-loadMore" onClick={handleLoadMore}>
+            load more
+          </button>
+
+          <PaginationComponent
+            pagesCount={pagesCount}
+            pageNum={pageNum}
+            onChangePageHandler={changePageHandler}
+          />
+        </>
+      )}
     </div>
   );
 }

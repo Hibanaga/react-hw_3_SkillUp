@@ -9,3 +9,116 @@
   width: 33%;
   margin: 0 auto;
 }
+
+.labelSearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 3rem;
+}
+
+.titleFormSearch {
+  font-size: 2rem;
+}
+
+.SearchForm {
+  width: 31rem;
+  position: relative;
+  background-color: rgb(219, 219, 219);
+  border-radius: 6px;
+  border: 1px solid #000;
+  border-left: none;
+
+  &:focus {
+    border-color: cadetblue;
+  }
+}
+
+.titleFormSearch {
+  margin-right: 1.5%;
+}
+
+.SearchBar-input {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  // margin-left: 0.4rem;
+  outline: none;
+  background-color: rgb(219, 219, 219);
+  transition: 0.4s;
+
+  border: none;
+
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-radius: 5px;
+
+  position: relative;
+  z-index: 999;
+
+  &::placeholder {
+    color: #333;
+  }
+
+  &:hover {
+    background-color: cadetblue;
+    color: #fff;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+
+  &:focus {
+    background-color: rgb(36, 108, 110);
+    color: #fff;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+}
+
+.SearchForm-button {
+  position: absolute;
+  width: 4.6rem;
+  height: 3.3rem;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  top: 0;
+  right: 0;
+  transition: 0.4s;
+
+  svg {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    background-color: rgb(37, 105, 107);
+
+    svg {
+      color: #fff;
+    }
+  }
+}
+
+.wrapperLoader {
+  position: sticky;
+
+  left: 45%;
+  top: 50%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
