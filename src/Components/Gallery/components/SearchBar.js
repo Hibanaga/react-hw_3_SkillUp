@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ImageSearchOutlinedIcon from "@material-ui/icons/ImageSearchOutlined";
+import PropTypes from "prop-types";
 
-export default function SearchBar({ onSubmitQuery }) {
+function SearchBar({ onSubmitQuery }) {
   const [query, setQuery] = useState("");
 
   const handleSubmitQuery = (event) => {
@@ -35,3 +36,9 @@ export default function SearchBar({ onSubmitQuery }) {
     </label>
   );
 }
+
+SearchBar.propTypes = {
+  onSubmitQuery: PropTypes.func.isRequired,
+};
+
+export default SearchBar;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputValidateName from "./components/inputValidateName";
 import InputValidateTelNumber from "./components/inputValidateTelNumber";
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 
 const ContactForm = ({ onHandleSubmitContact, contacts }) => {
   const [nameContact, setNameContact] = useState("");
@@ -94,6 +95,17 @@ const ContactForm = ({ onHandleSubmitContact, contacts }) => {
       </form>
     </aside>
   );
+};
+
+ContactForm.propTypes = {
+  onHandleSubmitContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default ContactForm;

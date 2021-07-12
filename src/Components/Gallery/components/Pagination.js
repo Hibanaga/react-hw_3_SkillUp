@@ -1,11 +1,8 @@
 import React from "react";
 import { Pagination } from "@material-ui/lab";
+import PropTypes from "prop-types";
 
-export default function PaginationComponent({
-  pagesCount,
-  pageNum,
-  onChangePageHandler,
-}) {
+function PaginationComponent({ pagesCount, pageNum, onChangePageHandler }) {
   return (
     <div>
       <Pagination
@@ -20,3 +17,11 @@ export default function PaginationComponent({
     </div>
   );
 }
+
+PaginationComponent.propTypes = {
+  pagesCount: PropTypes.number.isRequired,
+  pageNum: PropTypes.number.isRequired,
+  onChangePageHandler: PropTypes.func.isRequired,
+};
+
+export default PaginationComponent;

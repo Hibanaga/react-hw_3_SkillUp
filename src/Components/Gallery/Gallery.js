@@ -5,6 +5,7 @@ import pixabayFetch from "./services/pixabayAPI";
 import "./gallery.scss";
 import axios from "axios";
 import PaginationComponent from "./components/Pagination";
+import Button from "@material-ui/core/Button";
 
 const imagesReducer = (state, action) => {
   switch (action.type) {
@@ -73,7 +74,6 @@ export default function Gallery() {
   const changePageHandler = (event) => {
     setPageNum(Number(event.target.textContent));
     setUniqPage(true);
-    // setUniqPage(checkUniqPagination(pageNum, Number(event.target.textContent)));
   };
 
   let timeOut1 = setTimeout(() => {
@@ -81,7 +81,7 @@ export default function Gallery() {
       top: document.documentElement.scrollHeight,
       behavior: "smooth",
     });
-  }, 150);
+  }, 500);
 
   useEffect(() => {
     return () => {
@@ -92,19 +92,27 @@ export default function Gallery() {
   return (
     <div>
       <SearchBar onSubmitQuery={submitFormSearchHandler} />
-      <ImageGallery images={images.flat()} isLoading={isLoading} />
 
       {images.length > 0 && (
         <>
-          <button className="js-btn-loadMore" onClick={handleLoadMore}>
-            load more
-          </button>
+          <ImageGallery images={images.flat()} isLoading={isLoading} />
 
-          <PaginationComponent
-            pagesCount={pagesCount}
-            pageNum={pageNum}
-            onChangePageHandler={changePageHandler}
-          />
+          <div className="wrapperBtnsLoadMore">
+            <Button
+              variant="contained"
+              color="primary"
+              className="js-btn-loadMore"
+              onClick={handleLoadMore}
+            >
+              load more
+            </Button>
+
+            <PaginationComponent
+              pagesCount={pagesCount}
+              pageNum={pageNum}
+              onChangePageHandler={changePageHandler}
+            />
+          </div>
         </>
       )}
     </div>

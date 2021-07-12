@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ContactCard = ({ id, name, number, ondeleteContactHandler }) => {
   let deleteSelectItemHandler = () => {
@@ -18,6 +19,13 @@ const ContactCard = ({ id, name, number, ondeleteContactHandler }) => {
       </button>
     </div>
   );
+};
+
+ContactCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  ondeleteContactHandler: PropTypes.func.isRequired,
 };
 
 export default ContactCard;

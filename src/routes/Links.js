@@ -9,6 +9,14 @@ const Links = () => {
       <NavLink
         className="linkRoute"
         activeClassName="activeLinkRoute"
+        to={routes.home}
+      >
+        home
+      </NavLink>
+
+      <NavLink
+        className="linkRoute"
+        activeClassName="activeLinkRoute"
         to={routes.phonebook}
       >
         phonebook

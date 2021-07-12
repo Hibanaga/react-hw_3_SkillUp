@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function Filter({ filter, onFilterContactsByNameHandler }) {
+function Filter({ filter, onFilterContactsByNameHandler }) {
   return (
     <div className="wrapperInputFilter">
       <label htmlFor="" className="labelInputFormContact">
@@ -15,3 +16,10 @@ export default function Filter({ filter, onFilterContactsByNameHandler }) {
     </div>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onFilterContactsByNameHandler: PropTypes.func.isRequired,
+};
+
+export default Filter;

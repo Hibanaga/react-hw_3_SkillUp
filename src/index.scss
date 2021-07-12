@@ -14,3 +14,72 @@ html {
 li {
   list-style: none;
 }
+
+/*HOME STYLES*/
+
+.titleHome {
+  font-size: 3rem;
+  padding-top: 3%;
+  text-align: center;
+}
+
+.subTitleHome {
+  padding-top: 2%;
+  text-align: center;
+  display: block;
+  font-size: 2rem;
+}
+
+.wrapperDescription {
+  margin-top: 3%;
+}
+
+.description {
+  display: block;
+  font-size: 2rem;
+  line-height: 145%;
+  padding-top: 2%;
+  text-align: justify;
+
+  &::first-letter {
+    padding-left: 2rem;
+  }
+}
+
+/*NOT FOUND*/
+
+.wrapperArticleNotFound {
+  height: 90vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleNotFound {
+  font-size: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.infoPageTitle {
+  margin-bottom: 4rem;
+}
+
+.subtitleNotFound {
+  font-size: 4.5rem;
+  text-align: center;
+}
+
+.linkRouteMain {
+  display: block;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+  transition: 0.2s;
+
+  &:hover {
+    color: cornflowerblue;
+  }
+}

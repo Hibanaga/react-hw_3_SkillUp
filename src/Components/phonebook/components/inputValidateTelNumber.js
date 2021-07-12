@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const inputValidateTelNumber = ({ number, onHandleChangeInputs }) => {
   return (
@@ -21,6 +22,11 @@ const inputValidateTelNumber = ({ number, onHandleChangeInputs }) => {
       </label>
     </aside>
   );
+};
+
+inputValidateTelNumber.propTypes = {
+  number: PropTypes.string.isRequired,
+  onHandleChangeInputs: PropTypes.func.isRequired,
 };
 
 export default inputValidateTelNumber;

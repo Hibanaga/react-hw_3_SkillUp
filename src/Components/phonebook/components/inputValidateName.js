@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const InputValidateName = ({
   name,
@@ -42,6 +43,12 @@ const InputValidateName = ({
       </label>
     </aside>
   );
+};
+
+InputValidateName.propTypes = {
+  name: PropTypes.string.isRequired,
+  onHandleChangeInputs: PropTypes.func.isRequired,
+  onCheckUniqNameInput: PropTypes.func.isRequired,
 };
 
 export default InputValidateName;
