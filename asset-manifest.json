@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-hw_3_SkillUp/static/css/main.9bc7f067.chunk.css",
+    "main.js": "/react-hw_3_SkillUp/static/js/main.ab8f08c1.chunk.js",
+    "main.js.map": "/react-hw_3_SkillUp/static/js/main.ab8f08c1.chunk.js.map",
+    "runtime-main.js": "/react-hw_3_SkillUp/static/js/runtime-main.d4c65dc0.js",
+    "runtime-main.js.map": "/react-hw_3_SkillUp/static/js/runtime-main.d4c65dc0.js.map",
+    "static/css/2.b6f7359a.chunk.css": "/react-hw_3_SkillUp/static/css/2.b6f7359a.chunk.css",
+    "static/js/2.472628f1.chunk.js": "/react-hw_3_SkillUp/static/js/2.472628f1.chunk.js",
+    "static/js/2.472628f1.chunk.js.map": "/react-hw_3_SkillUp/static/js/2.472628f1.chunk.js.map",
+    "index.html": "/react-hw_3_SkillUp/index.html",
+    "static/css/2.b6f7359a.chunk.css.map": "/react-hw_3_SkillUp/static/css/2.b6f7359a.chunk.css.map",
+    "static/css/main.9bc7f067.chunk.css.map": "/react-hw_3_SkillUp/static/css/main.9bc7f067.chunk.css.map",
+    "static/js/2.472628f1.chunk.js.LICENSE.txt": "/react-hw_3_SkillUp/static/js/2.472628f1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d4c65dc0.js",
+    "static/css/2.b6f7359a.chunk.css",
+    "static/js/2.472628f1.chunk.js",
+    "static/css/main.9bc7f067.chunk.css",
+    "static/js/main.ab8f08c1.chunk.js"
+  ]
+}
