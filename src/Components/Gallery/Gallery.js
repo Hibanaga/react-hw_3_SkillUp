@@ -93,6 +93,13 @@ export default function Gallery() {
     <div>
       <SearchBar onSubmitQuery={submitFormSearchHandler} />
 
+      {querySearch !== "" && images.length === 0 && (
+        <h2 className="subtitleNotQuerySearch">
+          Sorry, but there is no answer for this request. Try to change your
+          request
+        </h2>
+      )}
+
       {images.length > 0 && (
         <>
           <ImageGallery images={images.flat()} isLoading={isLoading} />
